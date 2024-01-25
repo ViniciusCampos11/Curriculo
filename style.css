@@ -1,0 +1,171 @@
+*{ /*seletor universal, ou seja, todos os elementos*/
+  margin: 0; /*terão margin zero*/
+  padding: 0; /*terão padding (preenchimento) zero*/
+  box-sizing: border-box; /*medir a partir da borda*/
+}
+
+:root{
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --strok-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light{
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --strok-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+*/
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px auto; /*top right bottom left*/
+  padding: 0 24px;
+}
+
+/*profile*/
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500; /*peso da letra - negrito*/
+  line-height: 24px; /*altura da linha*/
+  margin-top: 8px;
+}
+
+/*switch*/
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  /*alinhamento da bolinha do button no centro do span*/
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1; /*o button está no andar 1*/
+  transform: translateY(-50%); /*translada o elemento 50% pra cima*/
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--strok-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* Links*/
+
+ul {
+  list-style: none; /*estilo da lista - nenhum*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /*espaçamento entre os itens da lista*/
+
+  padding: 24px 0; /*(superior e inferior) (laterais)*/
+}
+
+ul li a{
+  display: flex;
+  align-items: center; /*alinhamento na vertical dentro do box*/
+  justify-content: center; /*alinhamento horizontal dentro do box*/
+  
+  padding: 16px 24px;
+
+  background: var(--surface-color); /*cor e transparência*/
+  border: 1px solid var(--strok-color);
+  border-radius: 8px; /*arredondamento de bordas*/
+
+  backdrop-filter: blur(4px); /*embaçar*/
+  -webkit-backdrop-filter: blur(4px); /*usa webkit para poder ser utilizado em algumas versões do safari */
+
+  text-decoration: none; /*none: sem sublinhado no texto*/
+  font-weight: 500;
+
+  transition: background 0.2s; /*tempo de transição do background no hover*/
+}
+
+/*pseudo-selector - alterações que acontecem ao passar o mouse por cima do objeto*/
+ul li a:hover {
+  background: var(--surface-color-hover); /*cor e transparência*/
+  border: 1.5px solid var(--text-color);
+}
+
+/*social links*/
+#social-links{
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0;
+
+  font-size: 24px;
+
+}
+
+#social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%; /*faz uma bolinha*/
+}
+
+#social-links a:hover{
+  background: var(--highlight-color); 
+}
+
+footer{
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
